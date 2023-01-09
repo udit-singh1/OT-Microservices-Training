@@ -2,7 +2,7 @@ FROM node:lts-stretch-slim
 
 MAINTAINER Opstree Solutions
 
-COPY . /app
+COPY ./frontend/ /app
 
 WORKDIR /app/
 
@@ -15,6 +15,6 @@ RUN npm run build
 
 RUN yarn global add serve
 
-EXPOSE 5000
+EXPOSE 3000
 
 ENTRYPOINT ["serve", "-s", "build"]
