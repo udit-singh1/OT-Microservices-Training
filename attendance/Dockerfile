@@ -10,7 +10,7 @@ MAINTAINER OpsTree Solutions
 WORKDIR /app
 RUN apk add --no-cache libc6-compat curl
 COPY --from=builder /go/src/attendance/attendance /app/
-COPY config.yaml /app/config.yaml
+COPY ./attendance/config.yaml /app/config.yaml
 ENV CONFIG_FILE "/app/config.yaml"
 EXPOSE 8081
 ENTRYPOINT ["./attendance"]
