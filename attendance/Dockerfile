@@ -1,6 +1,6 @@
 FROM golang:latest as builder
 MAINTAINER OpsTree Solutions
-COPY . /go/src/attendance
+COPY ./attendance/ /go/src/attendance
 WORKDIR /go/src/attendance
 RUN go get -v -t -d ./... \
     && go build -o attendance
