@@ -1,6 +1,6 @@
 FROM maven:latest as builder
 MAINTAINER Opstree Solutions
-COPY . /java/
+COPY ./gateway/ /java/
 WORKDIR /java/
 RUN mvn package
 
