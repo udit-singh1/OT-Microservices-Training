@@ -1,6 +1,6 @@
 FROM golang:latest as builder
 MAINTAINER OpsTree Solutions
-COPY ./ /go/src/salary/
+COPY ./salary/ /go/src/salary/
 WORKDIR /go/src/salary
 RUN go get -v -t -d ./... \
     && go build -o salary
@@ -10,7 +10,7 @@ MAINTAINER OpsTree Solutions
 WORKDIR /app
 RUN apk add --no-cache libc6-compat curl
 COPY --from=builder /go/src/salary/salary /app/
-COPY config.yaml /app/config.yaml
+COPY ./salary/config.yaml /app/config.yaml
 ENV CONFIG_FILE "/app/config.yaml"
 EXPOSE 8082
 ENTRYPOINT ["./salary"]
